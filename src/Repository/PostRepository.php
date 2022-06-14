@@ -49,7 +49,7 @@ class PostRepository
         if( is_404() )
             throw new \Exception('Post not found', 404);
 
-        if( is_archive() || (is_home() && get_option('show_on_front') == 'posts') || is_search() ){
+        if( is_archive() || is_home() || is_search() ){
 
             global $wp_query;
             return $this->findBy($wp_query->query);
